@@ -1,9 +1,9 @@
+#!/usr/bin/zsh
 
-source oh-my-zsh.zsh
-ZSH_THEME="blinks"
+ZSH_THEME="fino"
 DISABLE_AUTO_UPDATE="true"
 
-plugins=(git rails3 autojump terminator thor github heroku command-not-found rvm zsh-syntax-highlighting rbenv bundler)
+plugins=(rails3 autojump terminator thor github heroku command-not-found rvm zsh-syntax-highlighting rbenv bundler)
 
 source $HOME/.zshenv
 

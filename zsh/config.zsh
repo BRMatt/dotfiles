@@ -5,6 +5,10 @@ else
 fi
 
 
+fpath=($DOTZSH/functions/ $fpath)
+
+autoload -U $DOTZSH/functions/*(:t)
+
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
@@ -12,7 +16,6 @@ SAVEHIST=10000
 setopt HIST_VERIFY
 setopt SHARE_HISTORY # share history between sessions ???
 setopt EXTENDED_GLOB
-
 
 bindkey '^[^[[D' backward-word
 bindkey '^[^[[C' forward-word
