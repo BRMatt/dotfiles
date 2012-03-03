@@ -1,0 +1,24 @@
+DOTFILES=$HOME/.dotfiles
+DOTZSH=$DOTFILES/zsh
+ZSH=$DOTZSH/.oh-my-zsh
+
+# Load config options first
+source $DOTZSH/config.zsh
+
+# Load all zsh files that aren't in the zsh directory
+for config_file ($DOTFILES/**/*.zsh~$DOTFILES/zsh**) source $config_file
+
+# use .localrc for SUPER SECRET CRAP that you don't
+# want in your public, versioned repo.
+if [[ -a ~/.localrc.zsh ]]
+then
+  source ~/.localrc.zsh
+fi
+
+#
+source $DOTZSH/oh-my-zsh.zsh
+
+# Customize to your needs...
+export PATH=$HOME/bin:$PATH
+
+
