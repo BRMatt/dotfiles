@@ -5,7 +5,7 @@ OVERWRITE   =  ARGV.delete('--overwrite')
 VERBOSE     = !ARGV.delete('--verbose').nil?
 
 HELP = <<EOS
-drop-up symlinks a file to your Dropbox public folder and copies the public url 
+dropup symlinks a file to your Dropbox public folder and copies the public url 
 to the clipboard.
 
 If the clipboard gem is not installed then it simply echos the public url.
@@ -18,7 +18,7 @@ This can be changed by setting the DROP_UP_DIR environment variable.
 EOS
 
 USAGE = <<EOS
-Usage: drop-up [options] filename
+Usage: dropup [options] filename
 
 Options:
 
