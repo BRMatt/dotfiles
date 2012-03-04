@@ -4,3 +4,6 @@
 [submodule "terminal/gnome-terminal-colors-solarized"]
 	path = terminal/gnome-terminal-colors-solarized
 	url = https://github.com/sigurdga/gnome-terminal-colors-solarized.git
+[submodule "guake/guake-colors-solarized"]
+	path = guake/guake-colors-solarized
+	url = https://github.com/coolwanglu/guake-colors-solarized.git
