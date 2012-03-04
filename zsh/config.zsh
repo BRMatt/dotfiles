@@ -4,6 +4,8 @@ else
   export PS1='%3~$(git_info_for_prompt)%# '
 fi
 
+# See https://github.com/seebi/dircolors-solarized
+export TERM=xterm-256color
 
 fpath=($DOTZSH/functions/ $fpath)
 
