@@ -1,16 +1,18 @@
 #!/usr/bin/env ruby
+require 'fileutils'
 
-DROP_UP_DIR = File.expand_path(ENV['DROP_UP_DIR'] || '~/Dropbox/Public/drop-up')
+DROP_UP_DIR = File.expand_path(ENV['DROP_UP_DIR'] || '~/Dropbox/Public/dropup')
 OVERWRITE   =  ARGV.delete('--overwrite')
 VERBOSE     = !ARGV.delete('--verbose').nil?
+COPY        =  ARGV.delete('--symlink').nil?
 
 HELP = <<EOS
-dropup symlinks a file to your Dropbox public folder and copies the public url 
-to the clipboard.
+dropup copies or symlinks files into your public folder and then gives you the
+public url.
 
-If the clipboard gem is not installed then it simply echos the public url.
+If the clipboard gem is installed it'll copy the public url to your clipboard(s).
 
-Files will be symlinked to: 
+Files will be stored in: 
 
   #{DROP_UP_DIR}
 
@@ -25,6 +27,7 @@ Options:
   --help     -h  Displays this help
   --no-clip      Doesn't copy the url to the clipboard
   --overwrite    Overwrites target file if it exists
+  --symlink      Symlink the file instead of copying it
   --verbose      Displays any notices
 
 #{HELP}
@@ -77,6 +80,8 @@ end
 
 Dir.mkdir(DROP_UP_DIR) unless Dir.exists?(DROP_UP_DIR)
 
+source = File.realpath(file)
+
 # I like my files to be organised by creation date
 date   = Time.now.strftime("%Y-%m-%d")
 target = File.join(DROP_UP_DIR, "#{date}_#{File.basename(file)}")
@@ -92,7 +97,11 @@ if File.exists?(target)
   File.delete(target)
 end
 
-File.symlink(File.realpath(file), target)
+if COPY
+  FileUtils.cp_r(source, target)
+else
+  File.symlink(source, target)
+end
 
 url = `dropbox puburl #{target}`
 
