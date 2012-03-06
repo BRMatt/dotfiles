@@ -54,4 +54,8 @@ task :uninstall do
   end
 end
 
+task :command_t do
+  `cd ~/.vim/bundle/command-t/ruby/command-t/ && ruby extconf.rb && make`
+end
+
 task :default => 'install'

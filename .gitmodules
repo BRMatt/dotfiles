@@ -7,3 +7,12 @@
 [submodule "guake/guake-colors-solarized"]
 	path = guake/guake-colors-solarized
 	url = https://github.com/coolwanglu/guake-colors-solarized.git
+[submodule "vim/vim.symlink/bundle/pathogen"]
+	path = vim/vim.symlink/bundle/pathogen
+	url = https://github.com/tpope/vim-pathogen.git
+[submodule "vim/vim.symlink/bundle/command-t"]
+	path = vim/vim.symlink/bundle/command-t
+	url = git://git.wincent.com/command-t.git
+[submodule "vim/vim.symlink/bundle/align"]
+	path = vim/vim.symlink/bundle/align
+	url = http://github.com/tsaleh/vim-align.git
