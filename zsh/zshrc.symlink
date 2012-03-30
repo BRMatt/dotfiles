@@ -18,6 +18,7 @@ then
   source ~/.localrc.zsh
 fi
 
+export EDITOR=vim
 export PATH=$HOME/bin:$DOTFILES/bin:$PATH
 
 # Useful for trying out themes:
