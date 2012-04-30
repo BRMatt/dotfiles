@@ -16,3 +16,6 @@
 [submodule "vim/vim.symlink/bundle/align"]
 	path = vim/vim.symlink/bundle/align
 	url = http://github.com/tsaleh/vim-align.git
+[submodule "vim/vim.symlink/bundle/ctrlp"]
+	path = vim/vim.symlink/bundle/ctrlp
+	url = https://github.com/kien/ctrlp.vim.git
