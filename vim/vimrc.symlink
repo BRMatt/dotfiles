@@ -21,6 +21,10 @@ set formatoptions+=n       " support for numbered/bullet lists
 "set textwidth=80           " wrap at 80 chars by default
 set virtualedit=block      " allow virtual edit in visual block ..
 
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬,trail:·
+set list
+
 " ----------------------------------------------------------------------------
 "  Remapping
 " ----------------------------------------------------------------------------
@@ -54,6 +58,9 @@ nmap <silent> <leader>s :set nolist!<CR>
 " Make shift-insert work like in Xterm
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
+
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
 
 " ,n to get the next location (compilation errors, grep etC)
 nmap <leader>n :cn<CR>
