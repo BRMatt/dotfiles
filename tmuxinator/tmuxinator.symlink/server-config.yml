@@ -1,0 +1,9 @@
+project_name: Server config
+project_root: ~/code/server-configuration
+tabs:
+  - editor:
+      layout: main-vertical
+      panes:
+        - vim
+        - git stash && git pull && git stash pop
+        - 
