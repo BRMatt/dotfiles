@@ -21,6 +21,9 @@ fi
 export EDITOR=vim
 export PATH=$HOME/bin:$DOTFILES/bin:$HOME/local/bin:$PATH
 
+# Setup autojump
+[[ -s ~/.autojump/etc/profile.d/autojump.zsh ]] && source ~/.autojump/etc/profile.d/autojump.zsh
+
 # Useful for trying out themes:
 #
 # for theme  ($ZSH/themes)
