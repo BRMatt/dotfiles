@@ -19,7 +19,7 @@ then
 fi
 
 export EDITOR=vim
-export PATH=$HOME/bin:$DOTFILES/bin:$PATH
+export PATH=$HOME/bin:$DOTFILES/bin:$HOME/local/bin:$PATH
 
 # Useful for trying out themes:
 #
