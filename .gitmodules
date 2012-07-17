@@ -25,3 +25,6 @@
 [submodule "vim/vim.symlink/bundle/puppet"]
 	path = vim/vim.symlink/bundle/puppet
 	url = git://github.com/vim-scripts/Puppet-Syntax-Highlighting.git
+[submodule "vim/vim.symlink/bundle/fugitive"]
+	path = vim/vim.symlink/bundle/fugitive
+	url = git://github.com/tpope/vim-fugitive.git

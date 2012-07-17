@@ -37,6 +37,13 @@ set list
 " lead with ,
 let mapleader = ","
 
+" Plugin specific shortcuts
+map <leader>gs :Gstatus<CR>
+map <leader>gc :Gcommit<CR>
+map <Leader>gb :Gblame<CR>
+map <Leader>gl :Git lg<CR>
+map <leader>gg :Gbrowse<CR>
+
 " exit to normal mode with 'jj'
 inoremap jj <ESC>
 
