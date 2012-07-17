@@ -21,6 +21,7 @@ Use `Ctrl-^` to switch back to the previous file in that window. Works well if y
 `Ctrl-G b`: Run `git blame`
 `Ctrl-G l`: Run `git lg`
 `Ctrl-G g`: Open the current file in github
+`Ctrl-G p`: Run `git push`
 
 ### Ctrl-P
 

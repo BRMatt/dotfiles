@@ -50,6 +50,8 @@ noremap <silent><c-g>c :Gcommit<CR>
 noremap <silent><c-g>b :Gblame<CR>
 noremap <silent><c-g>l :Git lg<CR>
 noremap <silent><c-g>g :Gbrowse<CR>
+noremap <silent><c-g>p :Git push
+
 
 " exit to normal mode with 'jj'
 inoremap jj <ESC>
