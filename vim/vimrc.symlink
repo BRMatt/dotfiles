@@ -44,7 +44,7 @@ autocmd FileType cucumber setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandta
 let mapleader = ","
 
 " Plugin specific shortcuts
-noremap <silent><c-a> :Ack
+noremap <leader>a :Ack
 noremap <silent><c-g>s :Gstatus<CR>
 noremap <silent><c-g>c :Gcommit<CR>
 noremap <silent><c-g>b :Gblame<CR>
@@ -111,9 +111,9 @@ set report=0               " tell us about changes
 set nostartofline          " don't jump to the start of line when scrolling
 
 
-" ----------------------------------------------------------------------------
+" ---------------------------------------------------------------------------
 " Visual Cues
-" ----------------------------------------------------------------------------
+" ---------------------------------------------------------------------------
 
 set showmatch              " brackets/braces that is
 set mat=5                  " duration to show matching brace (1/10 sec)
@@ -124,9 +124,14 @@ set nohlsearch             " don't highlight searches
 set visualbell             " shut the fuck up
 
 
-" ---------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
+"  Powerline settings
+" ----------------------------------------------------------------------------
+let g:Powerline_symbols = 'fancy'
+
+" ----------------------------------------------------------------------------
 "  Strip all trailing whitespace in file
-" ---------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 
 function! StripWhitespace ()
     exec ':%s/ \+$//gc'
