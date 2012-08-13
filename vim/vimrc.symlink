@@ -31,15 +31,33 @@ set listchars=tab:▸\ ,eol:¬,trail:·
 set list
 
 " ----------------------------------------------------------------------------
+"  Format specific text formatting
+" -----------------------------------------------------------------------------
+
+autocmd FileType cucumber setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+
+" ----------------------------------------------------------------------------
 "  Remapping
 " ----------------------------------------------------------------------------
 
 " lead with ,
 let mapleader = ","
 
+" Plugin specific shortcuts
+noremap <leader>a :Ack
+noremap <silent><c-g>s :Gstatus<CR>
+noremap <silent><c-g>c :Gcommit<CR>
+noremap <silent><c-g>b :Gblame<CR>
+noremap <silent><c-g>l :Git lg<CR>
+noremap <silent><c-g>g :Gbrowse<CR>
+noremap <silent><c-g>p :Git push
+
+
 " exit to normal mode with 'jj'
 inoremap jj <ESC>
 
+" Use semicolon as colons
+nnoremap ; :
 
 " reflow paragraph with Q in normal and visual mode
 nnoremap Q gqap
@@ -93,9 +111,9 @@ set report=0               " tell us about changes
 set nostartofline          " don't jump to the start of line when scrolling
 
 
-" ----------------------------------------------------------------------------
+" ---------------------------------------------------------------------------
 " Visual Cues
-" ----------------------------------------------------------------------------
+" ---------------------------------------------------------------------------
 
 set showmatch              " brackets/braces that is
 set mat=5                  " duration to show matching brace (1/10 sec)
@@ -106,9 +124,14 @@ set nohlsearch             " don't highlight searches
 set visualbell             " shut the fuck up
 
 
-" ---------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
+"  Powerline settings
+" ----------------------------------------------------------------------------
+let g:Powerline_symbols = 'fancy'
+
+" ----------------------------------------------------------------------------
 "  Strip all trailing whitespace in file
-" ---------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 
 function! StripWhitespace ()
     exec ':%s/ \+$//gc'
