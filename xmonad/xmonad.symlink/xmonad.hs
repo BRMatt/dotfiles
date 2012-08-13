@@ -3,14 +3,25 @@ import XMonad.Config.Gnome
 import XMonad.Prompt
 import XMonad.Prompt.RunOrRaise
 import XMonad.Util.EZConfig(additionalKeys)
+import qualified XMonad.StackSet as W
+import XMonad.Hooks.ManageHelpers
+import XMonad.Layout.NoBorders
+import XMonad.Layout.Fullscreen
 
-myManageHook = composeAll (
-    [ manageHook gnomeConfig
-    , className =? "Unity-2d-panel" --> doIgnore
-    , className =? "Unity-2d-launcher" --> doFloat
-  ])
 
-main = xmonad $ gnomeConfig 
+------------------------------------------------------------------------
+-- Window rules
+-- Execute arbitrary actions and WindowSet manipulations when managing a
+-- new window.
+myManageHook = composeAll
+  [ manageHook gnomeConfig
+  , className =? "Unity-2d-panel" --> doIgnore
+  , className =? "Google-chrome"  --> doShift "1:web"
+  , resource  =? "skype"          --> doFloat
+  , isFullscreen --> (doF W.focusDown <+> doFullFloat)
+  ]
+
+main = xmonad $ gnomeConfig
   { manageHook = myManageHook
   , workspaces = ["1:web", "2:dev", "3:music", "4:comm", "5", "6", "7", "8", "9", "0", "-", "="]
   }
