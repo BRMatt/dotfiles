@@ -17,6 +17,7 @@ myManageHook = composeAll
   [ manageHook gnomeConfig
   , className =? "Unity-2d-panel" --> doIgnore
   , className =? "Google-chrome"  --> doShift "1:web"
+  , className =? "spotify"        --> doShift "3:music"
   , resource  =? "skype"          --> doFloat
   , isFullscreen --> (doF W.focusDown <+> doFullFloat)
   ]
