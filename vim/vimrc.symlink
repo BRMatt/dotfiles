@@ -7,7 +7,7 @@ call pathogen#infect()
 syntax enable
 filetype plugin indent on
 
-colorscheme elflord
+colorscheme tomorrow-night
 
 " ----------------------------------------------------------------------------
 "  Text Formatting
