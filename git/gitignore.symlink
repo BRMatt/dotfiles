@@ -1,5 +1,5 @@
 *.rbc
-*.swp
+*.sw[a-z]
 *~
 .#*
 .DS_Store
