@@ -53,7 +53,7 @@ set-option -g status-utf8 on
 set-option -g status-justify "centre"
 set-option -g status-left-length 100
 set-option -g status-right-length 100
-set-option -g status-left "#($HOME/.tmux/powerline/status-left.sh)"
+set-option -g status-left "#($HOME/.tmux/powerline-left.sh)"
 set-option -g status-right "#($HOME/.tmux/powerline-right.sh)"
 
 
