@@ -128,6 +128,9 @@ set visualbell             " shut the fuck up
 "  Powerline settings
 " ----------------------------------------------------------------------------
 let g:Powerline_symbols = 'fancy'
+" We already get this info in the shell, no need to replicate in every pane...
+call Pl#Theme#RemoveSegment("fugitive:branch") 
+
 
 " ----------------------------------------------------------------------------
 "  Strip all trailing whitespace in file
