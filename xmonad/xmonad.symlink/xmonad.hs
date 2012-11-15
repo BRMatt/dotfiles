@@ -7,6 +7,8 @@ import qualified XMonad.StackSet as W
 import XMonad.Hooks.ManageHelpers
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Fullscreen
+import XMonad.Hooks.EwmhDesktops
+
 
 
 ------------------------------------------------------------------------
@@ -24,6 +26,7 @@ myManageHook = composeAll
 
 main = xmonad $ gnomeConfig
   { manageHook = myManageHook
+  , handleEventHook = XMonad.Hooks.EwmhDesktops.fullscreenEventHook
   , workspaces = ["1:web", "2:dev", "3:music", "4:comm", "5", "6", "7", "8", "9", "0", "-", "="]
   }
   `additionalKeys`
