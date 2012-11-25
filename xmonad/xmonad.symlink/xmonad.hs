@@ -7,6 +7,7 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.DynamicLog
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Fullscreen
+import XMonad.Hooks.EwmhDesktops
 
 ------------------------------------------------------------------------
 -- Terminal
@@ -42,11 +43,11 @@ myManageHook = composeAll
 
 main = xmonad =<< xmobar myConfig
 
-
 myConfig = defaultConfig 
   { manageHook = myManageHook
   , terminal   = myTerminal
   , workspaces = myWorkspaces
+  , handleEventHook = XMonad.Hooks.EwmhDesktops.fullscreenEventHook
   }
   `additionalKeys`
   [ ((mod1Mask, xK_F2), runOrRaisePrompt defaultXPConfig)
