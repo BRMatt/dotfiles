@@ -39,6 +39,7 @@ myManageHook = composeAll
   , className =? "Google-chrome"  --> doShift "1:web"
   , className =? "spotify"        --> doShift "3:music"
   , resource  =? "skype"          --> doFloat
+  , resource  =? "xmobar"         --> doIgnore
   , isFullscreen --> (doF W.focusDown <+> doFullFloat)
   ]
 
@@ -50,5 +51,8 @@ myConfig = gnomeConfig { manageHook = myManageHook
   }
   `additionalKeys`
   [ ((mod1Mask, xK_F2), runOrRaisePrompt defaultXPConfig)
+  , ((0, 0x1008FF11), spawn "amixer sset Master 5%-")
+  , ((0, 0x1008FF13), spawn "amixer sset Master 5%+")
+  , ((0, 0x1008ff12), spawn "amixer -q set PCM toggle")
   ]
 
