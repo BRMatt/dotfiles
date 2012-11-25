@@ -5,10 +5,28 @@ import XMonad.Prompt.RunOrRaise
 import XMonad.Util.EZConfig(additionalKeys)
 import qualified XMonad.StackSet as W
 import XMonad.Hooks.ManageHelpers
+import XMonad
+import XMonad.Hooks.DynamicLog
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Fullscreen
 import XMonad.Hooks.EwmhDesktops
 
+------------------------------------------------------------------------
+-- Terminal
+-- The preferred terminal program, which is used in a binding below and by
+-- certain contrib modules.
+--
+myTerminal = "/usr/bin/gnome-terminal"
+
+------------------------------------------------------------------------
+-- Status bar configuration
+------------------------------------------------------------------------
+myBar = "xmobar"
+
+toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
+
+
+myWorkspaces = ["1:web", "2:dev", "3:music", "4:comm", "5", "6", "7", "8", "9", "0", "-", "="]
 
 
 ------------------------------------------------------------------------
@@ -24,14 +42,13 @@ myManageHook = composeAll
   , isFullscreen --> (doF W.focusDown <+> doFullFloat)
   ]
 
-main = xmonad $ gnomeConfig
-  { manageHook = myManageHook
+main = xmonad =<< xmobar myConfig
+
+myConfig = gnomeConfig { manageHook = myManageHook
+  , workspaces = myWorkspaces
   , handleEventHook = XMonad.Hooks.EwmhDesktops.fullscreenEventHook
-  , workspaces = ["1:web", "2:dev", "3:music", "4:comm", "5", "6", "7", "8", "9", "0", "-", "="]
   }
   `additionalKeys`
   [ ((mod1Mask, xK_F2), runOrRaisePrompt defaultXPConfig)
   ]
-
-
 
