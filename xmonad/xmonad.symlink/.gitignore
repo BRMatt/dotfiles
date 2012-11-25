@@ -1,3 +1,4 @@
 # All files apart from xmonad.hs are generated via xmonad --compile
 *
 !/xmonad.hs
+!/xmobar.hs
