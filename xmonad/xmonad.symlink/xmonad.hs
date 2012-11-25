@@ -1,15 +1,12 @@
 import XMonad
-import XMonad.Config.Gnome
 import XMonad.Prompt
 import XMonad.Prompt.RunOrRaise
 import XMonad.Util.EZConfig(additionalKeys)
 import qualified XMonad.StackSet as W
 import XMonad.Hooks.ManageHelpers
-import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Fullscreen
-import XMonad.Util.Run(spawnPipe)
 
 ------------------------------------------------------------------------
 -- Terminal
@@ -34,7 +31,7 @@ myWorkspaces = ["1:web", "2:dev", "3:music", "4:comm", "5", "6", "7", "8", "9", 
 -- Execute arbitrary actions and WindowSet manipulations when managing a
 -- new window.
 myManageHook = composeAll
-  [ manageHook gnomeConfig
+  [ manageHook defaultConfig
   , className =? "Unity-2d-panel" --> doIgnore
   , className =? "Google-chrome"  --> doShift "1:web"
   , className =? "spotify"        --> doShift "3:music"
@@ -46,7 +43,9 @@ myManageHook = composeAll
 main = xmonad =<< xmobar myConfig
 
 
-myConfig = gnomeConfig { manageHook = myManageHook
+myConfig = defaultConfig 
+  { manageHook = myManageHook
+  , terminal   = myTerminal
   , workspaces = myWorkspaces
   }
   `additionalKeys`
