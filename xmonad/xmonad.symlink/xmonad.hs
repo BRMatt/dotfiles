@@ -48,6 +48,7 @@ myConfig = defaultConfig
   , terminal   = myTerminal
   , workspaces = myWorkspaces
   , handleEventHook = XMonad.Hooks.EwmhDesktops.fullscreenEventHook
+  , layoutHook      = smartBorders $ layoutHook defaultConfig
   }
   `additionalKeys`
   [ ((mod1Mask, xK_F2), runOrRaisePrompt defaultXPConfig)
