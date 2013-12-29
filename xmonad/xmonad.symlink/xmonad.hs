@@ -1,13 +1,16 @@
 import XMonad
 import XMonad.Prompt
 import XMonad.Prompt.RunOrRaise
-import XMonad.Util.EZConfig(additionalKeys)
+import XMonad.Util.EZConfig(additionalKeysP)
 import qualified XMonad.StackSet as W
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.DynamicLog
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Fullscreen
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.SetWMName
+import XMonad.Layout.ThreeColumns
+import XMonad.Layout
 
 ------------------------------------------------------------------------
 -- Terminal
@@ -24,7 +27,21 @@ myBar = "xmobar"
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 
-myWorkspaces = ["1:web", "2:dev", "3:music", "4:comm", "5", "6", "7", "8", "9", "0", "-", "="]
+myWorkspaces = ["1:web", "2:dev", "3:music", "4", "5", "6", "7", "8", "9", "0", "-", "="]
+
+myLayout = ThreeCol 1 (3/100) (1/2) ||| ThreeColMid 1 (3/100) (1/2) ||| tiled ||| Mirror tiled ||| Full
+  where
+     -- default tiling algorithm partitions the screen into two panes
+     tiled   = Tall nmaster delta ratio
+
+     -- The default number of windows in the master pane
+     nmaster = 1
+
+     -- Default proportion of screen occupied by master pane
+     ratio   = 1/2
+
+     -- Percent of screen to increment by when resizing panes
+     delta   = 3/100
 
 
 ------------------------------------------------------------------------
@@ -38,22 +55,23 @@ myManageHook = composeAll
   , className =? "spotify"        --> doShift "3:music"
   , resource  =? "skype"          --> doFloat
   , resource  =? "xmobar"         --> doIgnore
+  , className =? "Trayer"         --> doIgnore
   , isFullscreen --> (doF W.focusDown <+> doFullFloat)
   ]
 
-main = xmonad =<< xmobar myConfig
+main = xmonad =<< xmobar myConfig { layoutHook = myLayout }
 
 myConfig = defaultConfig 
   { manageHook = myManageHook
+  , startupHook = setWMName "LG3D"
+  , logHook = setWMName "LG3D"
   , terminal   = myTerminal
   , workspaces = myWorkspaces
   , handleEventHook = XMonad.Hooks.EwmhDesktops.fullscreenEventHook
   , layoutHook      = smartBorders $ layoutHook defaultConfig
   }
-  `additionalKeys`
-  [ ((mod1Mask, xK_F2), runOrRaisePrompt defaultXPConfig)
-  , ((0, 0x1008FF11), spawn "amixer sset Master 5%-")
-  , ((0, 0x1008FF13), spawn "amixer sset Master 5%+")
-  , ((0, 0x1008ff12), spawn "amixer -q set PCM toggle")
+  `additionalKeysP`
+  [ ("M-<F2>", runOrRaisePrompt defaultXPConfig)
+  , ("M-S-q", spawn "gnome-session-quit") 
   ]
 
