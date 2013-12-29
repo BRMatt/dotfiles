@@ -1,0 +1,75 @@
+#!/bin/zsh
+
+function linkables {
+  find . -name '.git' -prune -o -iname '*.symlink' -print
+}
+
+function extract_symlink_name {
+  echo $1 | sed -ne "s/\(.*\?\)\/\([A-Za-z]\+\).symlink$/\2/p"
+}
+
+function source_name {
+  without_prefix="`echo $1 | cut --characters=3-`"
+
+  echo "`pwd`/$without_prefix"
+}
+
+function link_name {
+  echo "$HOME/.`extract_symlink_name $1`"
+}
+
+function link_command {
+  echo "ln -s $1 $2"
+}
+
+function args() { echo $# }
+
+function install {
+  local link_target;
+  local name_of_link;
+  local create_link;
+  local overwrite_all="0";
+
+  for linkable in ${=1}; do
+    link_target="`source_name $linkable`"
+    name_of_link="`link_name $linkable`"
+
+    create_link="1"
+
+    if [[ -e "$name_of_link" && $overwrite_all -eq "0" ]]; then
+      create_link=false
+
+      if [[ $skip_all -eq "0" ]]; then
+        read -q "REPLY?$name_of_link already exists, [o]verwrite, [O]verwrite all, [s]kip, [S]kip all"
+        case "$REPLY" in
+          "o")
+            echo "\nOverwriting"
+            create_link="1"
+            ;;
+          "O")
+            echo "\nOverwriting all"
+            overwrite_all="1"
+            create_link="1"
+            ;;
+          "S")
+            echo "\nSkipping all conflicts"
+            create_link="0"
+            skip_all="1"
+            ;;
+          *)
+            echo "\nskipping"
+            ;;
+        esac
+      fi
+    fi
+
+    if [[ $create_link -eq "1" ]]; then
+      echo "$name_of_link -> $link_target"
+      rm -rf $name_of_link
+
+      `link_command $link_target $name_of_link`
+    fi
+  done
+}
+
+install "`linkables`"
