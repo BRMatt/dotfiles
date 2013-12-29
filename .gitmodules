@@ -1,42 +1,6 @@
-[submodule "zsh/oh-my-zsh.symlink"]
-	path = zsh/oh-my-zsh.symlink
-	url = git://github.com/robbyrussell/oh-my-zsh.git
 [submodule "terminal/gnome-terminal-colors-solarized"]
 	path = terminal/gnome-terminal-colors-solarized
 	url = https://github.com/sigurdga/gnome-terminal-colors-solarized.git
-[submodule "guake/guake-colors-solarized"]
-	path = guake/guake-colors-solarized
-	url = https://github.com/coolwanglu/guake-colors-solarized.git
-[submodule "vim/vim.symlink/bundle/pathogen"]
-	path = vim/vim.symlink/bundle/pathogen
-	url = https://github.com/tpope/vim-pathogen.git
-[submodule "vim/vim.symlink/bundle/align"]
-	path = vim/vim.symlink/bundle/align
-	url = http://github.com/tsaleh/vim-align.git
-[submodule "vim/vim.symlink/bundle/ctrlp"]
-	path = vim/vim.symlink/bundle/ctrlp
-	url = https://github.com/kien/ctrlp.vim.git
-[submodule "vim/vim.symlink/bundle/coffee-script"]
-	path = vim/vim.symlink/bundle/coffee-script
-	url = https://github.com/kchmck/vim-coffee-script.git
-[submodule "vim/vim.symlink/bundle/syntastic"]
-	path = vim/vim.symlink/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
-[submodule "vim/vim.symlink/bundle/puppet"]
-	path = vim/vim.symlink/bundle/puppet
-	url = git://github.com/vim-scripts/Puppet-Syntax-Highlighting.git
-[submodule "vim/vim.symlink/bundle/fugitive"]
-	path = vim/vim.symlink/bundle/fugitive
-	url = git://github.com/tpope/vim-fugitive.git
-[submodule "vim/vim.symlink/bundle/powerline"]
-	path = vim/vim.symlink/bundle/powerline
-	url = git://github.com/Lokaltog/vim-powerline.git
-[submodule "tmux/tmux.symlink/powerline"]
-	path = tmux/tmux.symlink/powerline
-	url = git://github.com/erikw/tmux-powerline.git
-[submodule "vim/vim.symlink/bundle/vimux"]
-	path = vim/vim.symlink/bundle/vimux
-	url = git://github.com/benmills/vimux.git
-[submodule "vim/vim.symlink/bundle/ultisnips"]
-	path = vim/vim.symlink/bundle/ultisnips
-	url = git://github.com/SirVer/ultisnips.git
+[submodule "zsh/prezto"]
+	path = zsh/prezto
+	url = git://github.com/sorin-ionescu/prezto.git
