@@ -1,6 +1,6 @@
 [submodule "terminal/gnome-terminal-colors-solarized"]
 	path = terminal/gnome-terminal-colors-solarized
 	url = https://github.com/sigurdga/gnome-terminal-colors-solarized.git
-[submodule "zsh/prezto"]
-	path = zsh/prezto
+[submodule "zsh.symlink/.zprezto"]
+	path = zsh.symlink/.zprezto
 	url = git://github.com/sorin-ionescu/prezto.git
