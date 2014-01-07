@@ -24,3 +24,5 @@ alias ll="ls -alF --color=auto"
 # Setup autojump
 [[ -s ~/.autojump/etc/profile.d/autojump.zsh ]] && source ~/.autojump/etc/profile.d/autojump.zsh
 
+[[ -a "${ZDOTDIR:-$HOME}/.localrc.zsh" ]] && source "${ZDOTDIR:-$HOME}/.localrc.zsh"
+

@@ -2,6 +2,7 @@
 	ui = true
 [core]
 	excludesfile = ~/.gitignore
+	editor = vim
 [push]
 	default = tracking
 [url "git@github.com:"]

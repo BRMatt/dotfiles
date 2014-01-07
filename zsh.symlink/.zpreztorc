@@ -30,6 +30,7 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'ruby' \
   'history' \
+  'history-substring-search' \
   'directory' \
   'spectrum' \
   'utility' \
