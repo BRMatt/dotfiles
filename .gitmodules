@@ -13,3 +13,6 @@
 [submodule "tmux/tmux.symlink/powerline"]
 	path = tmux/tmux.symlink/powerline
 	url = git@github.com:erikw/tmux-powerline.git
+[submodule "vim/vim.symlink/bundle/vundle"]
+	path = vim/vim.symlink/bundle/vundle
+	url = git@github.com:gmarik/vundle.git
