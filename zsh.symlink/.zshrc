@@ -30,3 +30,10 @@ fi
 
 [[ -a "${ZDOTDIR:-$HOME}/.localrc.zsh" ]] && source "${ZDOTDIR:-$HOME}/.localrc.zsh"
 
+if [[ -s /usr/local/share/chruby/chruby.sh ]]; then
+  . /usr/local/share/chruby/chruby.sh
+
+  chruby ruby-2.0
+
+  . /usr/local/share/chruby/auto.sh
+fi
