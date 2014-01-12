@@ -17,7 +17,7 @@ import XMonad.Layout
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal = "/usr/bin/gnome-terminal"
+myTerminal = "/usr/bin/terminator"
 
 ------------------------------------------------------------------------
 -- Status bar configuration
@@ -72,6 +72,5 @@ myConfig = defaultConfig
   }
   `additionalKeysP`
   [ ("M-<F2>", runOrRaisePrompt defaultXPConfig)
-  , ("M-S-q", spawn "gnome-session-quit") 
   ]
 
