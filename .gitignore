@@ -2,3 +2,4 @@ zsh.symlink/*history*
 zsh.symlink/*dump*
 zsh.symlink/.localrc.zsh
 vim/vim.symlink/.netrwhist
+vim/vim.symlink/bundle/*
