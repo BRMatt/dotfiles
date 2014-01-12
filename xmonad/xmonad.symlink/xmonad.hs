@@ -1,7 +1,7 @@
 import XMonad
 import XMonad.Prompt
 import XMonad.Prompt.RunOrRaise
-import XMonad.Util.EZConfig(additionalKeysP)
+import XMonad.Util.EZConfig(additionalKeys)
 import qualified XMonad.StackSet as W
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.DynamicLog
@@ -11,13 +11,40 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout
+import Graphics.X11.ExtraTypes.XF86
 
-------------------------------------------------------------------------
--- Terminal
--- The preferred terminal program, which is used in a binding below and by
--- certain contrib modules.
---
-myTerminal = "/usr/bin/terminator"
+
+-- Idea stolen from https://github.com/league/dot-files/blob/master/xmonad.hs
+-- From what I understand this defines a data type, and when we use it below we
+-- give it the type class "Show", which is used for getting string representations
+-- of types. In this case the string representation is the command to run.
+data AppClass = AudioLower
+              | AudioMute
+              | AudioRaise
+              | TerminalApp
+              | Suspend
+
+instance Show AppClass where
+  show AudioMute   = "amixer set Master toggle"
+  show AudioRaise  = "amixer set Master 10%+"
+  show AudioLower  = "amixer set Master 10%-"
+  show TerminalApp = "/usr/bin/terminator"
+  show Suspend     = "dbus-send --system --print-reply --dest=\"org.freedesktop.UPower\" /org/freedesktop/UPower org.freedesktop.UPower.Suspend"
+
+-- Alt key
+myMod = mod1Mask
+
+-- Enforce the same type signature as spawn
+start :: MonadIO m => AppClass -> m ()
+start = spawn . show
+
+myKeys =
+  [ ((myMod, xK_F2), runOrRaisePrompt defaultXPConfig)
+  , ((0, xF86XK_AudioLowerVolume), start AudioLower)
+  , ((0, xF86XK_AudioRaiseVolume), start AudioRaise)
+  , ((0, xF86XK_AudioMute       ), start AudioMute)
+  , ((myMod, xK_Pause),            start Suspend)
+  ]
 
 ------------------------------------------------------------------------
 -- Status bar configuration
@@ -25,7 +52,6 @@ myTerminal = "/usr/bin/terminator"
 myBar = "xmobar"
 
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
-
 
 myWorkspaces = ["1:web", "2:dev", "3:music", "4", "5", "6", "7", "8", "9", "0", "-", "="]
 
@@ -44,6 +70,7 @@ myLayout = ThreeCol 1 (3/100) (1/2) ||| ThreeColMid 1 (3/100) (1/2) ||| tiled ||
      delta   = 3/100
 
 
+
 ------------------------------------------------------------------------
 -- Window rules
 -- Execute arbitrary actions and WindowSet manipulations when managing a
@@ -55,6 +82,7 @@ myManageHook = composeAll
   , className =? "spotify"        --> doShift "3:music"
   , resource  =? "skype"          --> doFloat
   , resource  =? "xmobar"         --> doIgnore
+  , resource  =? "xmessage"       --> doFloat
   , className =? "Trayer"         --> doIgnore
   , isFullscreen --> (doF W.focusDown <+> doFullFloat)
   ]
@@ -65,12 +93,10 @@ myConfig = defaultConfig
   { manageHook = myManageHook
   , startupHook = setWMName "LG3D"
   , logHook = setWMName "LG3D"
-  , terminal   = myTerminal
+  , terminal   = show TerminalApp
   , workspaces = myWorkspaces
   , handleEventHook = XMonad.Hooks.EwmhDesktops.fullscreenEventHook
   , layoutHook      = smartBorders $ layoutHook defaultConfig
   }
-  `additionalKeysP`
-  [ ("M-<F2>", runOrRaisePrompt defaultXPConfig)
-  ]
+  `additionalKeys` myKeys
 
