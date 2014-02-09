@@ -5,7 +5,7 @@ function linkables {
 }
 
 function extract_symlink_name {
-  echo $1 | sed -ne "s/\(.*\?\)\/\([A-Za-z]\+\).symlink$/\2/p"
+  echo $1 | sed -ne "s/\(.*\?\)\/\([A-Za-z\._]\+\).symlink$/\2/p"
 }
 
 function source_name {
@@ -40,7 +40,8 @@ function install {
       create_link=false
 
       if [[ $skip_all -eq "0" ]]; then
-        read -q "REPLY?$name_of_link already exists, [o]verwrite, [O]verwrite all, [s]kip, [S]kip all"
+        read -k "REPLY?$name_of_link already exists, [o]verwrite, [O]verwrite all, [s]kip, [S]kip all "
+	echo "\nYou said $REPLY\n"
         case "$REPLY" in
           "o")
             echo "\nOverwriting"
