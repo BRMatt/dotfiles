@@ -19,6 +19,10 @@ fi
 # Customize to your needs...
 
 alias ll="ls -alF --color=auto"
+alias bi="bundle install"
+alias be="bundle exec"
+alias rspc="bundle exec rspec"
+alias rls="bundle exec rails"
 
 
 # Setup autojump
