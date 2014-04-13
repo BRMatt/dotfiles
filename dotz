@@ -5,7 +5,7 @@ function linkables {
 }
 
 function extract_symlink_name {
-  echo $1 | sed -ne "s/\(.*\?\)\/\([A-Za-z]\+\).symlink$/\2/p"
+  echo $1 | sed -ne "s/\(.*\?\)\/\([A-Za-z\.]\+\).symlink$/\2/p"
 }
 
 function source_name {
