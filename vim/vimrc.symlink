@@ -14,6 +14,10 @@ Bundle 'kchmck/vim-coffee-script'
 " Color schemes
 Bundle 'chriskempson/base16-vim'
 
+Bundle 'elzr/vim-json'
+Bundle 'thoughtbot/vim-rspec'
+Bundle 'tpope/vim-dispatch'
+
 syntax enable
 filetype plugin indent on
 
@@ -144,12 +148,20 @@ let g:Powerline_symbols = 'fancy'
 " We already get this info in the shell, no need to replicate in every pane...
 " call Pl#Theme#RemoveSegment("fugitive:branch") 
 
+" ----------------------------------------------------------------------------
+"  Rspec testing plugins
+" ----------------------------------------------------------------------------
+let g:rspec_command = "Dispatch bundle exec rspec {spec}"
+"
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
 
 " ----------------------------------------------------------------------------
 "  Strip all trailing whitespace in file
 " ----------------------------------------------------------------------------
 
-function! StripWhitespace ()
-    exec ':%s/ \+$//gc'
-endfunction
-map ,s :call StripWhitespace ()<CR>
+autocmd BufWritePre .cpp,.c,*.h,.rb,.erb,.html,.css,.scss :%/\s\+$//e

@@ -78,8 +78,6 @@ myLayout = ThreeCol 1 (3/100) (1/2) ||| ThreeColMid 1 (3/100) (1/2) ||| tiled ||
 myManageHook = composeAll
   [ manageHook defaultConfig
   , className =? "Unity-2d-panel" --> doIgnore
-  , className =? "Google-chrome"  --> doShift "1:web"
-  , className =? "spotify"        --> doShift "3:music"
   , resource  =? "skype"          --> doFloat
   , resource  =? "xmobar"         --> doIgnore
   , resource  =? "xmessage"       --> doFloat
