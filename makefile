@@ -1,5 +1,9 @@
 
-setup: bin/ack bin/tmuxstart
+setup: bin/ack bin/tmuxstart bin/gitcrypt
+
+bin/gitcrypt:
+	curl https://raw.githubusercontent.com/shadowhand/git-encrypt/develop/gitcrypt > bin/gitcrypt
+	chmod +x bin/gitcrypt
 
 bin/ack:
 	curl http://beyondgrep.com/ack-2.12-single-file > bin/ack
