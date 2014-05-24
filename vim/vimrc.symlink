@@ -5,18 +5,20 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 
-Bundle "gmarik/vundle"
+Plugin 'gmarik/vundle'
 
-Bundle 'tpope/vim-fugitive'
-Bundle "kien/ctrlp.vim"
-Bundle 'kchmck/vim-coffee-script'
+Plugin 'tpope/vim-fugitive'
+Plugin 'kien/ctrlp.vim'
+Plugin 'kchmck/vim-coffee-script'
 
 " Color schemes
-Bundle 'chriskempson/base16-vim'
+Plugin 'chriskempson/base16-vim'
 
-Bundle 'elzr/vim-json'
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'tpope/vim-dispatch'
+Plugin 'elzr/vim-json'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'tpope/vim-dispatch'
+
+Plugin 'fatih/vim-go'
 
 syntax enable
 filetype plugin indent on
