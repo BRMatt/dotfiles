@@ -20,26 +20,23 @@ fi
 
 # custom stuff
 
-alias ll="ls -alF --color=auto"
-alias bi="bundle install"
-alias be="bundle exec"
-alias rspc="bundle exec rspec"
-alias rls="bundle exec rails"
+if [[ "$OSX" == "1" ]] then
+  alias ll="ls -a -l -F"
+else
+  alias ll="ls -a -l -F --color=auto"
+fi
 
-# config that's specific to this machine
-# e.g.
-#
-# cdpath=(
-#   ~/development
-#   ~/development/golang/src/github.com/geckoboard
-#   $cdpath
-# )
-[[ -a "${HOME}/.localrc.zsh" ]] && source "${HOME}/.localrc.zsh"
+# Setup autojump
+if [[ -s /usr/share/autojump/autojump.sh ]]; then
+  . /usr/share/autojump/autojump.sh
+elif [[ -s ~/.autojump/etc/profile.d/autojump.zsh ]]; then
+  . ~/.autojump/etc/profile.d/autojump.zsh
+fi
+
+[[ -a "${ZDOTDIR:-$HOME}/.localrc.zsh" ]] && source "${ZDOTDIR:-$HOME}/.localrc.zsh"
 
 if [[ -s /usr/local/share/chruby/chruby.sh ]]; then
   . /usr/local/share/chruby/chruby.sh
-
-  chruby ruby-2.0
 
   . /usr/local/share/chruby/auto.sh
 fi

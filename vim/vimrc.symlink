@@ -17,6 +17,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'elzr/vim-json'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-dispatch'
+Plugin 'mkarmona/colorsbox'
 
 Plugin 'fatih/vim-go'
 
