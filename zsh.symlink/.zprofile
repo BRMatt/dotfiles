@@ -17,7 +17,8 @@ fi
 # Editors
 #
 
-export EDITOR='vim'
+export EDITOR=`command -v nvim || command -v vim`
+export GIT_EDITOR="$EDITOR"
 export VISUAL='vim'
 export PAGER='less'
 
@@ -37,9 +38,9 @@ fi
 typeset -gU cdpath fpath mailpath path
 
 # Set the the list of directories that cd searches.
-# cdpath=(
-#   $cdpath
-# )
+cdpath=(
+  $cdpath
+)
 
 # Set the list of directories that Zsh searches for programs.
 path=(

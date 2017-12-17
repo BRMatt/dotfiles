@@ -16,7 +16,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+# custom stuff
 
 alias ll="ls -alF --color=auto"
 alias bi="bundle install"
@@ -24,11 +24,15 @@ alias be="bundle exec"
 alias rspc="bundle exec rspec"
 alias rls="bundle exec rails"
 
-
-# Setup autojump
-[[ -f /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/autojump.sh
-
-[[ -a "${ZDOTDIR:-$HOME}/.localrc.zsh" ]] && source "${ZDOTDIR:-$HOME}/.localrc.zsh"
+# config that's specific to this machine
+# e.g.
+#
+# cdpath=(
+#   ~/development
+#   ~/development/golang/src/github.com/geckoboard
+#   $cdpath
+# )
+[[ -a "${HOME}/.localrc.zsh" ]] && source "${HOME}/.localrc.zsh"
 
 if [[ -s /usr/local/share/chruby/chruby.sh ]]; then
   . /usr/local/share/chruby/chruby.sh
@@ -38,4 +42,5 @@ if [[ -s /usr/local/share/chruby/chruby.sh ]]; then
   . /usr/local/share/chruby/auto.sh
 fi
 
+# Use fuzzy finder completion for history search etc.
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
