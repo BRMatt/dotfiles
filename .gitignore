@@ -1,3 +1,4 @@
+git/user.conf
 zsh.symlink/*history*
 zsh.symlink/*dump*
 zsh.symlink/.localrc.zsh

@@ -5,9 +5,12 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #   Matt Button <that.matt.button@gmail.com>
 #
+echo "IT'S A SETUP"
 export ZDOTDIR="$HOME/.zsh"
-export EDITOR="/usr/bin/vim"
 export PATH="$HOME/bin:$HOME/.dotfiles/bin:$HOME/local/bin:$PATH"
+
+export EDITOR=`command -v nvim || command -v vim`
+export GIT_EDITOR="$EDITOR"
 
 # Ensure that a non-login, non-interactive shell has a defined environment.
 if [[ "$SHLVL" -eq 1 && ! -o LOGIN ]]; then
