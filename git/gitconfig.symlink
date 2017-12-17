@@ -1,6 +1,6 @@
 [include]
   ; Keep my name/email out of the public dotfiles
-  path = user.conf
+  path = ~/.gituser
 [color]
   ui = true
 [core]
