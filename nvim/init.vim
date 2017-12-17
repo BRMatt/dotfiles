@@ -19,9 +19,18 @@ call plug#begin('~/.config/nvim/plugged')
 " Ctrl-\n
 " > Get of terminal insert mode
 "
-" commenting - gc[motion] or selection
+" Ctrl-o
+" > Zoom in/out of the current buffer 
+"
+" Misc
+" ====
+"
+" <Enter>
+" > In normal mode, clear any highlighted terms
+"
+" gc[motion] or selection
+" > (un)Comment the selection
 
-Plug 'tpope/vim-surround'
 
 Plug 'fatih/vim-go'
 
@@ -40,22 +49,24 @@ endif
 " These are the vim wrappers for fzf
 Plug 'junegunn/fzf.vim'
 
+" Tim has some good reckons
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 
 Plug 'troydm/zoomwintab.vim'
 
 Plug 'mkarmona/colorsbox'
 
+" Minimal status bar
 Plug 'itchyny/lightline.vim'
 
-Plug 'tpope/vim-fugitive'
+" Show indicator for lines added/removed in the left gutter
 Plug 'airblade/vim-gitgutter'
 
 Plug 'neomake/neomake'
-
-Plug 'tpope/vim-commentary'
-
 Plug 'joshdick/onedark.vim'
 
 call plug#end()
