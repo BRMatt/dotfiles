@@ -1,7 +1,23 @@
 call plug#begin('~/.config/nvim/plugged')
 
-
-" Tips
+" Navigation
+" ==========
+"
+" Ctrl-p
+" > open a fuzzy finder prompt for files in :pwd
+"
+" ;
+" > Open a fuzzy finder of the open buffers
+"
+" -
+" > Open netrw with the current file highlighted. Press again to go up
+" > to parent with current dir highlighted
+"
+" Ctrl-[h,j,k,l]
+" > Move to the specified pane, in any mode, even terminal
+"
+" Ctrl-\n
+" > Get of terminal insert mode
 "
 " commenting - gc[motion] or selection
 
@@ -25,6 +41,7 @@ endif
 Plug 'junegunn/fzf.vim'
 
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-vinegar'
 
 Plug 'troydm/zoomwintab.vim'
 
