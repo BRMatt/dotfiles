@@ -5,7 +5,6 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #   Matt Button <that.matt.button@gmail.com>
 #
-echo "IT'S A SETUP"
 export ZDOTDIR="$HOME/.zsh"
 export PATH="$HOME/bin:$HOME/.dotfiles/bin:$HOME/local/bin:$PATH"
 
@@ -16,5 +15,3 @@ export GIT_EDITOR="$EDITOR"
 if [[ "$SHLVL" -eq 1 && ! -o LOGIN ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
-
-
