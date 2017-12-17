@@ -13,15 +13,16 @@ Plug 'majutsushi/tagbar'
 
 Plug 'rust-lang/rust.vim' 
 
+" Install the fzf binary
 if filereadable('/usr/local/opt/fzf/plugin/fzf.vim')
-  " Use the version installed by brew if available
+  " from brew on osx
   Plug '/usr/local/opt/fzf'
 else
-  " Or download and install a copy
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 endif
 
-Plug 'junegunn/fzf'
+" These are the vim wrappers for fzf
+Plug 'junegunn/fzf.vim'
 
 Plug 'tpope/vim-endwise'
 
