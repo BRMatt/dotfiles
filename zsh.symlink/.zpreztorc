@@ -27,7 +27,6 @@ zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
   'git' \
-  'ruby' \
   'history' \
   'directory' \
   'spectrum' \

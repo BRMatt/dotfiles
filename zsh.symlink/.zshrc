@@ -18,8 +18,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# custom stuff
-
 if [[ "$OSX" == "1" ]] then
   alias ll="ls -a -l -F"
 else
