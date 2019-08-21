@@ -6,6 +6,7 @@
 #
 
 export TERM=xterm-256color
+export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 #BASE16_SCHEME="default"
 #BASE16_SHELL="$HOME/.zsh/base16-shell/base16-$BASE16_SCHEME.dark.sh"
@@ -38,6 +39,8 @@ if [[ -s /usr/local/share/chruby/chruby.sh ]]; then
 
   . /usr/local/share/chruby/auto.sh
 fi
+
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Use fuzzy finder completion for history search etc.
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
