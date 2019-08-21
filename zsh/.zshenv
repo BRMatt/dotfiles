@@ -7,9 +7,7 @@
 #
 export ZDOTDIR="$HOME/.zsh"
 export EDITOR="/usr/bin/vim"
-export PATH="$HOME/bin:$HOME/go/bin:$HOME/.dotfiles/bin:$HOME/local/bin:$PATH"
-export IPLAYER_OUTDIR="/Users/mattbutton/Movies/iplayer"
-export GOPATH="$HOME/go"
+export PATH="$HOME/bin:$HOME/go/bin:$HOME/local/bin:$PATH"
 
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
@@ -27,15 +25,10 @@ export LC_TELEPHONE="en_US.UTF-8"
 export LC_MEASUREMENT="en_US.UTF-8"
 export LC_IDENTIFICATION="en_US.UTF-8"
 
-export GOPATH="$HOME/development/golang"
-export PATH="$GOPATH/bin:$PATH"
-export NVIM_TUI_ENABLE_TRUE_COLOR=1
-
 # Ensure that a non-login, non-interactive shell has a defined environment.
 if [[ "$SHLVL" -eq 1 && ! -o LOGIN ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
-export PATH="$HOME/.cargo/bin:$PATH"
 
 if [[ `uname` == 'Darwin' ]]
 then
