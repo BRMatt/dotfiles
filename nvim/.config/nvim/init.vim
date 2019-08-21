@@ -1,5 +1,10 @@
 call plug#begin('~/.config/nvim/plugged')
 
+" install plugins automatically if this first-run
+if empty(glob('~/.config/nvim/plugged'))
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " Navigation
 " ==========
 "
