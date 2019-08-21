@@ -4,4 +4,4 @@ if [ ! hash brew > /dev/null 2>&1> ]; then
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi;
 
-brew install stow neovim git zsh
+brew install stow neovim git zsh the_silver_searcher
