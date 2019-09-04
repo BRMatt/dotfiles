@@ -40,6 +40,13 @@ if [[ -s /usr/local/share/chruby/chruby.sh ]]; then
   . /usr/local/share/chruby/auto.sh
 fi
 
+if (( $+commands[go] )); then
+  # Recent versions of go default to ~/go, but it's useful to set this
+  # environment variable to make it easier to cd into the gopath
+  export GOPATH="$(go env GOPATH)"
+  export PATH="$GOPATH/bin:$PATH"
+fi;
+
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # Use fuzzy finder completion for history search etc.
