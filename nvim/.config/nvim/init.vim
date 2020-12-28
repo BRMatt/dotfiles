@@ -83,6 +83,8 @@ if has('syntax') && !exists('g:syntax_on')
   syntax enable
 endif
 
+let g:go_version_warning = 0
+
 set termguicolors
 
 let mapleader=","                     " comma is the leader key
