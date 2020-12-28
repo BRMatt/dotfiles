@@ -10,3 +10,5 @@ nvim/plugged/*
 nvim/.netrwhist
 nvim/spell/*
 nvim/shada/*
+.zcompcache
+plug.vim.old
