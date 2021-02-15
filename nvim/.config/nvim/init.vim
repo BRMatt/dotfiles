@@ -36,12 +36,16 @@ endif
 " gc[motion] or selection
 " > (un)Comment the selection
 
+" themes
+Plug 'cocopon/iceberg.vim'
+Plug 'gkeep/iceberg-dark'
 
 Plug 'fatih/vim-go'
 
 Plug 'majutsushi/tagbar'
 
 Plug 'rust-lang/rust.vim' 
+Plug 'cespare/vim-toml'
 
 " Install the fzf binary
 if filereadable('/usr/local/opt/fzf/plugin/fzf.vim')
@@ -74,6 +78,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'neomake/neomake'
 Plug 'joshdick/onedark.vim'
 
+
 call plug#end()
 
 if has('autocmd')
@@ -90,7 +95,8 @@ set termguicolors
 let mapleader=","                     " comma is the leader key
 
 set background=dark
-colorscheme colorsbox-stnight
+colorscheme iceberg
+let g:lightline = { 'colorscheme': 'icebergDark' }
 
 set visualbell                        " stop beeping at me
 
