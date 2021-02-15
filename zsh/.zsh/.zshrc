@@ -51,3 +51,5 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # Use fuzzy finder completion for history search etc.
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+command -v starship &>/dev/null && eval "$(starship init zsh)"
