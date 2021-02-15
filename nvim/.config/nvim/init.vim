@@ -40,6 +40,10 @@ endif
 Plug 'cocopon/iceberg.vim'
 Plug 'gkeep/iceberg-dark'
 
+" tools for debugging themes
+Plug 'cocopon/inspecthi.vim'
+Plug 'cocopon/colorswatch.vim'
+
 Plug 'fatih/vim-go'
 
 Plug 'majutsushi/tagbar'
@@ -94,9 +98,17 @@ set termguicolors
 
 let mapleader=","                     " comma is the leader key
 
+" theming stuff
 set background=dark
 colorscheme iceberg
 let g:lightline = { 'colorscheme': 'icebergDark' }
+
+" Neomake has custom 'signs' for indicating build errors, we need to tweak
+" them to use the correct colors from iceberg.vim
+let g:neomake_error_sign = { 'text': '✖', 'texthl': 'ALEErrorSign' }
+let g:neomake_warning_sign = { 'text': '‼', 'texthl': 'ALEWarningSign' }
+let g:neomake_message_sign = { 'text': '➤', 'texthl': 'vimMark' }
+let g:neomake_info_sign = { 'text': 'ℹ', 'texthl': 'vimMark' }
 
 set visualbell                        " stop beeping at me
 
