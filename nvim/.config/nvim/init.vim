@@ -44,11 +44,11 @@ Plug 'gkeep/iceberg-dark'
 Plug 'cocopon/inspecthi.vim'
 Plug 'cocopon/colorswatch.vim'
 
-Plug 'fatih/vim-go'
-
 Plug 'majutsushi/tagbar'
 
+Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim' 
+Plug 'jparise/vim-graphql'
 Plug 'cespare/vim-toml'
 
 " Install the fzf binary
