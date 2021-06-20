@@ -39,3 +39,6 @@ then
 else
   export OSX=
 fi
+
+# go proxy seems to take a long time on my computer
+export GOPROXY=direct
