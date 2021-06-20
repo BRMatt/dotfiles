@@ -248,6 +248,8 @@ nnoremap <c-l> <C-w>l
 nmap ; :Buffers<CR>
 nmap <c-p> :Files<CR>
 nmap <Leader>r :Tags<CR>
+"" use rip-grep for searching files
+nmap <c-g> :Rg<CR>
 
 " Make it easy to edit/reload vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
