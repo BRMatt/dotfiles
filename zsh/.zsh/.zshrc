@@ -53,3 +53,5 @@ export PATH="$HOME/.cargo/bin:$PATH"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 command -v starship &>/dev/null && eval "$(starship init zsh)"
+
+[ -f /usr/local/opt/asdf/asdf.sh ] && . /usr/local/opt/asdf/asdf.sh
