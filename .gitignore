@@ -12,3 +12,5 @@ nvim/spell/*
 nvim/shada/*
 .zcompcache
 plug.vim.old
+.zsh_history
+.zsh_sessions
