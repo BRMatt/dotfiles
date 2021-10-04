@@ -44,12 +44,27 @@ Plug 'gkeep/iceberg-dark'
 Plug 'cocopon/inspecthi.vim'
 Plug 'cocopon/colorswatch.vim'
 
-Plug 'majutsushi/tagbar'
+" VSCode like plugins
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = [
+  \ 'coc-tsserver',
+  \ 'coc-json',
+  \ 'coc-eslint',
+  \ ]
+
 
 Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim' 
 Plug 'jparise/vim-graphql'
 Plug 'cespare/vim-toml'
+Plug 'kevinoid/vim-jsonc'
+
+Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+
+
+" 
 
 " Install the fzf binary
 if filereadable('/usr/local/opt/fzf/plugin/fzf.vim')
@@ -79,9 +94,7 @@ Plug 'itchyny/lightline.vim'
 " Show indicator for lines added/removed in the left gutter
 Plug 'airblade/vim-gitgutter'
 
-Plug 'neomake/neomake'
 Plug 'joshdick/onedark.vim'
-
 
 call plug#end()
 
@@ -99,16 +112,12 @@ set termguicolors
 let mapleader=","                     " comma is the leader key
 
 " theming stuff
+
 set background=dark
+hi Quote ctermbg=109 guifg=#83a598
 colorscheme iceberg
 let g:lightline = { 'colorscheme': 'icebergDark' }
-
-" Neomake has custom 'signs' for indicating build errors, we need to tweak
-" them to use the correct colors from iceberg.vim
-let g:neomake_error_sign = { 'text': '✖', 'texthl': 'ALEErrorSign' }
-let g:neomake_warning_sign = { 'text': '‼', 'texthl': 'ALEWarningSign' }
-let g:neomake_message_sign = { 'text': '➤', 'texthl': 'vimMark' }
-let g:neomake_info_sign = { 'text': 'ℹ', 'texthl': 'vimMark' }
+hi Quote ctermbg=109 guifg=#83a598
 
 set visualbell                        " stop beeping at me
 
@@ -149,6 +158,12 @@ autocmd InsertEnter * :set norelativenumber
 autocmd InsertLeave * :set relativenumber
 
 au TermOpen * setlocal nonumber norelativenumber
+
+" When editing JS/TS files do syntax highlighting from start of file
+" to avoid things getting out of sync
+" https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
 
 """"""""""""""""""""""
@@ -246,7 +261,6 @@ nnoremap <c-l> <C-w>l
 " Hook up some shortcuts for fzf
 nmap ; :Buffers<CR>
 nmap <c-p> :Files<CR>
-nmap <Leader>r :Tags<CR>
 "" use rip-grep for searching files
 nmap <c-g> :Rg<CR>
 
@@ -255,9 +269,6 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 let g:airline_powerline_fonts = 1
-
-" Run neomake every time we save a file
-autocmd! BufWritePost * Neomake
 
 " <leader>G opens the Git status window
 map <leader>G :Gstatus<cr>
@@ -290,6 +301,32 @@ endfunction
 " Taken from https://github.com/fatih/vim-go-tutorial
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 
+" coc.vim
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
+
+" Allow jumping between errors in a file
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+nmap <leader>do <Plug>(coc-codeaction)
+nmap <leader>rn <Plug>(coc-rename)
+
+" use tab/shift-tab to navigate through suggestions
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 nnoremap th  :tabfirst<CR>
 nnoremap tj  :tabnext<CR>
