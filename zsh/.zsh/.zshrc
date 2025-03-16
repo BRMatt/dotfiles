@@ -5,6 +5,8 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+zmodload zsh/zprof
+
 export TERM=xterm-256color
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
@@ -40,6 +42,8 @@ if [[ -s /usr/local/share/chruby/chruby.sh ]]; then
   . /usr/local/share/chruby/auto.sh
 fi
 
+[ -f ~/.asdf/plugins/golang/set-env.zsh ] && . ~/.asdf/plugins/golang/set-env.zsh
+
 if (( $+commands[go] )); then
   # Recent versions of go default to ~/go, but it's useful to set this
   # environment variable to make it easier to cd into the gopath
@@ -54,4 +58,17 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 command -v starship &>/dev/null && eval "$(starship init zsh)"
 
-[ -f /usr/local/opt/asdf/asdf.sh ] && . /usr/local/opt/asdf/asdf.sh
+command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
+
+command -v brew &>/dev/null && eval "ASDF_DIR=\"$(brew --prefix asdf)/libexec\""
+
+export ASDF_GOLANG_MOD_VERSION_ENABLED=true
+
+[ -f $ASDF_DIR/asdf.sh ] && . $ASDF_DIR/asdf.sh
+autoload -Uz compinit && compinit
+
+[ -f ~/.asdf/plugins/golang/set-env.zsh ] && . ~/.asdf/plugins/golang/set-env.zsh
+
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+
+zprof

@@ -42,3 +42,4 @@ fi
 
 # go proxy seems to take a long time on my computer
 export GOPROXY=direct
+. "$HOME/.cargo/env"

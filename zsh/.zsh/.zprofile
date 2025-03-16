@@ -13,14 +13,6 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
 
-#
-# Editors
-#
-
-export EDITOR=`command -v nvim || command -v vim`
-export GIT_EDITOR="$EDITOR"
-export VISUAL='vim'
-export PAGER='less'
 
 #
 # Language
@@ -30,9 +22,6 @@ if [[ -z "$LANG" ]]; then
   export LANG='en_US.UTF-8'
 fi
 
-#
-# Paths
-#
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
@@ -47,6 +36,8 @@ path=(
   /usr/local/{bin,sbin}
   $path
 )
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 #
 # Less
@@ -76,3 +67,12 @@ if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
 
+#
+#
+# Editors
+#
+
+export EDITOR=`command -v nvim || command -v vim`
+export GIT_EDITOR="$EDITOR"
+export VISUAL='view'
+export PAGER='less'
