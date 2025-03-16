@@ -1,0 +1,4 @@
+{
+  "coc.preferences.enableFloatHighlight": false,
+  "javascript.validate.enable": false,
+}

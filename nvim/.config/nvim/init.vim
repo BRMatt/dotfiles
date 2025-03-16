@@ -52,7 +52,6 @@ let g:coc_global_extensions = [
   \ 'coc-eslint',
   \ ]
 
-
 Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim' 
 Plug 'jparise/vim-graphql'
@@ -62,7 +61,6 @@ Plug 'kevinoid/vim-jsonc'
 Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
-
 
 " 
 
