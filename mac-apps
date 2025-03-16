@@ -1,0 +1,65 @@
+total 56
+drwxrwxr-x  64 root        admin   2048 Mar 16 11:56 ./
+drwxr-xr-x  20 root        wheel    640 Mar 21  2024 ../
+-rw-r--r--@  1 mattbutton  admin  26628 Mar 16 19:17 .DS_Store
+-rw-r--r--   1 root        wheel      0 Mar 21  2024 .localized
+drwxr-xr-x@  3 root        wheel     96 Mar  4 21:47 1Password for Safari.app/
+drwxr-xr-x@  3 mattbutton  staff     96 Feb 24 12:59 1Password.app/
+drwxr-xr-x@  7 root        admin    224 Oct 23 02:14 Adobe Bridge 2024/
+drwxr-xr-x@  7 root        admin    224 Oct 23 02:13 Adobe Bridge 2025/
+drwxrwxr-x@  6 root        admin    192 Sep 21 11:34 Adobe Creative Cloud/
+drwxr-xr-x@  5 root        admin    160 Oct 16 22:56 Adobe Lightroom Classic/
+drwxr-xr-x@  9 root        wheel    288 Sep 27 18:16 Adobe Photoshop 2024/
+drwxr-xr-x@  9 root        wheel    288 Oct 23 01:54 Adobe Photoshop 2025/
+drwxr-xr-x@  3 root        wheel     96 Mar  6 13:57 Arq.app/
+drwxrwxr-x   3 root        staff     96 Jan 20  2024 Blackmagic Proxy Generator Lite.app/
+drwxr-xr-x@  5 root        admin    160 Jan 20  2024 Blackmagic RAW/
+drwxr-xr-x@  3 mattbutton  admin     96 Feb 21 16:21 Burp Suite Community Edition.app/
+drwxrwxrwx   3 mattbutton  admin     96 Nov 15  2021 Camera Settings.app/
+drwxr-xr-x@  3 root        wheel     96 Feb 12 21:39 Darkroom.app/
+drwxr-xr-x@  3 mattbutton  admin     96 Aug  3  2022 Dash.app/
+drwxr-xr-x@  3 mattbutton  admin     96 Dec  8  2020 DevHub.app/
+drwxr-xr-x@  3 root        wheel     96 Oct 27  2021 Divvy.app/
+drwxr-xr-x@  3 mattbutton  admin     96 Dec 11 16:29 Docker.app/
+drwxr-xr-x@  3 mattbutton  staff     96 Mar 13 18:12 Dropbox.app/
+drwxr-xr-x   3 mattbutton  staff     96 Oct  5  2022 Figma.app/
+drwxrwxr-x@  3 mattbutton  admin     96 Feb 19 15:19 Firefox.app/
+drwxr-xr-x@  3 mattbutton  admin     96 Jun 13  2022 GIMP-2.10.app/
+drwxr-xr-x@  3 root        wheel     96 Jan 30 22:09 GarageBand.app/
+drwxr-xr-x@  3 mattbutton  staff     96 Feb 24 12:01 Ghostty.app/
+drwxr-xr-x@  3 mattbutton  admin     96 Nov 15  2021 Gitify.app/
+drwxr-xr-x   3 root        wheel     96 Mar  9  2022 GoPro Webcam.app/
+drwxrwxr-x@  3 mattbutton  admin     96 May 10  2024 Google Chrome.app/
+drwxr-xr-x@  3 mattbutton  admin     96 Feb 23 11:24 Itsycal.app/
+drwxr-xr-x@  3 root        wheel     96 Dec 12 21:46 Keynote.app/
+drwxr-xr-x@  3 root        wheel     96 Nov  2  2023 Kindle.app/
+drwxr-xr-x@  3 root        wheel     96 Aug 29  2024 Microsoft Remote Desktop.app/
+drwxr-xr-x@  3 root        wheel     96 Jun 28  2024 Microsoft Teams.app/
+drwxr-xr-x   3 root        admin     96 Mar  3  2023 Multipass.app/
+drwxr-xr-x@  3 mattbutton  admin     96 Feb 19  2024 Notion.app/
+drwxr-xr-x@  3 root        wheel     96 Dec 12 21:42 Numbers.app/
+drwxr-xr-x@  3 mattbutton  admin     96 Feb 14 03:32 Obsidian.app/
+drwxr-xr-x@  3 root        wheel     96 Dec 12 21:51 Pages.app/
+drwxr-xr-x  14 papercut    admin    448 Feb 25 11:54 PaperCut Print Deploy Client/
+drwxr-xr-x   3 mattbutton  staff     96 Jan 27 23:44 Postman.app/
+drwxr-xr-x@  3 mattbutton  admin     96 Mar  6 15:47 Raycast.app/
+lrwxr-xr-x@  1 root        wheel     54 Mar 21  2024 Safari.app@ -> ../System/Cryptexes/App/System/Applications/Safari.app
+drwxrwxr-x@ 20 mattbutton  admin    640 Mar 14 16:41 Setapp/
+drwxr-xr-x@  3 mattbutton  staff     96 Feb 19 15:20 Setapp.app/
+drwxr-xr-x@  3 mattbutton  staff     96 Feb 13 21:55 Slack.app/
+drwxr-xr-x   3 mattbutton  staff     96 Feb 26 11:28 Spotify.app/
+drwxr-xr-x@  3 root        wheel     96 Feb 19 21:39 Tailscale.app/
+drwxr-xr-x@  3 root        wheel     96 Feb  4 21:41 Things3.app/
+drwxr-xr-x@  3 mattbutton  admin     96 Mar  4 18:03 Tuple.app/
+drwxr-xr-x   8 root        wheel    256 Oct  4 17:54 Utilities/
+drwxr-xr-x@  3 mattbutton  admin     96 Jun  5  2024 VLC.app/
+drwxr-xr-x@  3 mattbutton  staff     96 Mar 10 23:38 Visual Studio Code.app/
+drwxr-xr-x@  3 mattbutton  admin     96 Mar  5 15:47 WhatsApp.app/
+drwxr-xr-x@  3 mattbutton  admin     96 Aug 23  2023 Wireshark.app/
+drwxr-xr-x@  3 root        wheel     96 May 20  2024 Xcode.app/
+drwxr-xr-x@  3 mattbutton  staff     96 Oct 31 12:35 Zed.app/
+drwxr-xr-x@  3 mattbutton  admin     96 Jul 12  2023 balenaEtcher.app/
+drwxr-xr-x@  3 root        wheel     96 Aug 14  2024 iMovie.app/
+drwxr-xr-x@  3 mattbutton  admin     96 Jan  6 11:06 iTerm.app/
+drwxr-xr-x@  3 mattbutton  admin     96 Sep 30  2023 noTunes.app/
+drwxr-xr-x@  3 root        wheel     96 Oct 28 09:38 zoom.us.app/
